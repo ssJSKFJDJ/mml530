@@ -1,0 +1,170 @@
+===============================================================================
+    COOLGS.TXT Ver3.0 for MML2MID + SC-88   by ＳＮＢ／ＡＴＭ
+===============================================================================
+（このファイルから必要なコマンドをカット＆ペーストして使ってください）
+
+■ 音色エディット系NRPN
+
+N1,8,64 N1,9,72 N1,10,68	; ビブラート設定例(rate depth delay)
+N1,x63,54 N1,x64,94 N1,x66,58	; エンベロープ設定例(attak decay release)
+N1,x20,n			; カットオフ周波数(=TCn)
+N1,x21,n			; レゾナンス(=TRn)
+
+
+■ ドラムエディット系NRPN
+
+Nx18,note,n	; ドラムピッチ(0-64-127)
+Nx1A,note,n	; ドラムレベル(0-64-127)
+Nx1C,note,n	; ドラムパン(0-64-127)
+Nx1D,note,n	; ドラムリバーブ(0-64-127)
+Nx1E,note,n	; ドラムコーラス(0-64-127)
+
+
+■ 便利なドラムマクロ集
+
+$k k100 J36	; kick
+$s k100 J38	; snare 1
+$n k100 J40	; snare 2
+$i k070 J44	; pedal hihat
+$h k070 J42	; closed hihat
+$o k070 J46	; open hihat
+$r k090 J49	; cymbal 1 (right)
+$l k095 J57	; cymbal 2 (left)
+$a k100 J48	; tom-H
+$b k100 J45	; tom-M
+$c k100 J41	; tom-L
+
+
+■ 主要コントロールチェンジ
+
+y64,n	 ; ホールドの量の設定
+y67,n	 ; ソフト化の量の設定
+y91,n    ; リバーブの量の設定
+y93,n    ; コーラスの量の設定
+y94,n    ; ディレイの量の設定(SC-88)
+
+
+■ 主要エクスクルーシブ
+
+・音源初期化
+EX x7e,x7f,x09,x01,xf7                      ; GM SYSTEM ON
+EX x41,x10,x42,x12,{x40,x00,x7f,x00},xf7    ; GS RESET
+EX x41,x10,x42,x12,{x00,x00,x7f,x00},xf7    ; SC-88 Single Module Mode
+
+・リバーブ
+EX x41,x10,x42,x12,{x40,x01,x30,n},xf7      ; REVERB MACRO [*]
+EX x41,x10,x42,x12,{x40,x01,x31,n},xf7      ; REVERB CHARACTER
+EX x41,x10,x42,x12,{x40,x01,x32,n},xf7      ; REVERB PRE-LPF
+EX x41,x10,x42,x12,{x40,x01,x33,n},xf7      ; REVERB LEVEL
+EX x41,x10,x42,x12,{x40,x01,x34,n},xf7      ; REVERB TIME
+EX x41,x10,x42,x12,{x40,x01,x35,n},xf7      ; REVERB DELAY FEEDBACK
+
+・コーラス
+EX x41,x10,x42,x12,{x40,x01,x38,n},xf7      ; CHORUS MACRO [*]
+EX x41,x10,x42,x12,{x40,x01,x39,n},xf7      ; CHORUS PRE-LPF
+EX x41,x10,x42,x12,{x40,x01,x3a,n},xf7      ; CHORUS LEVEL
+EX x41,x10,x42,x12,{x40,x01,x3b,n},xf7      ; CHORUS FEEDBACK
+EX x41,x10,x42,x12,{x40,x01,x3c,n},xf7      ; CHORUS DELAY
+EX x41,x10,x42,x12,{x40,x01,x3d,n},xf7      ; CHORUS RATE
+EX x41,x10,x42,x12,{x40,x01,x3e,n},xf7      ; CHORUS DEPTH
+EX x41,x10,x42,x12,{x40,x01,x3f,n},xf7      ; CHORUS SEND LEVEL TO REVERB
+
+・ディレイ(SC-88)
+EX x41,x10,x42,x12,{x40,x01,x50,n},xf7      ; DELAY MACRO [*]
+EX x41,x10,x42,x12,{x40,x01,x51,n},xf7      ; DELAY PRE-LPF
+EX x41,x10,x42,x12,{x40,x01,x52,n},xf7      ; DELAY TIME CENTER
+EX x41,x10,x42,x12,{x40,x01,x53,n},xf7      ; DELAY TIME RATIO LEFT
+EX x41,x10,x42,x12,{x40,x01,x54,n},xf7      ; DELAY TIME RATIO RIGHT
+EX x41,x10,x42,x12,{x40,x01,x55,n},xf7      ; DELAY LEVEL CENTER
+EX x41,x10,x42,x12,{x40,x01,x56,n},xf7      ; DELAY LEVEL LEFT
+EX x41,x10,x42,x12,{x40,x01,x57,n},xf7      ; DELAY LEVEL RIGHT
+EX x41,x10,x42,x12,{x40,x01,x58,n},xf7      ; DELAY LEVEL
+EX x41,x10,x42,x12,{x40,x01,x59,n},xf7      ; DELAY FEEDBACK
+EX x41,x10,x42,x12,{x40,x01,x5A,n},xf7      ; DELAY SENDLEVEL TO REVERB
+
+・イコライザ(SC-88)
+EX x41,x10,x42,x12,{x40,x02,x00,n},xf7      ; EQ Low Freq. (0:400Hz/1:200Hz)
+EX x41,x10,x42,x12,{x40,x02,x01,n},xf7      ; EQ Low Gain  (52-64-76)/Def=64
+EX x41,x10,x42,x12,{x40,x02,x02,n},xf7      ; EQ High Freq.(0:6kHz/1:3kHz)
+EX x41,x10,x42,x12,{x40,x02,x03,n},xf7      ; EQ High Gain (52-64-76)/Def=64
+
+・その他
+EX x41,x10,x42,x12,{x40,x1a,x15,2},xF7      ; Ch.11 = RHYTHM2 (SC-88)
+EX x41,x10,x42,x12,{x40,16+n,x1c,00},xf7    ; Random Pan (n=Ch)
+EX x41,x10,x45,x12,{x10,0,0,"Sample"},xf7   ; Display Letter
+EX x41,x10,x42,x12,{x40,0,0,0,n1,n2,n3},xf7 ; Master-Tune [*]
+
+EX x41,x10,x42,x12,{x40,x11,x02,x10},xf7    ; GS-Ch.1  off
+EX x41,x10,x42,x12,{x40,x12,x02,x10},xf7    ; GS-Ch.2  off
+EX x41,x10,x42,x12,{x40,x13,x02,x10},xf7    ; GS-Ch.3  off
+EX x41,x10,x42,x12,{x40,x14,x02,x10},xf7    ; GS-Ch.4  off
+EX x41,x10,x42,x12,{x40,x15,x02,x10},xf7    ; GS-Ch.5  off
+EX x41,x10,x42,x12,{x40,x16,x02,x10},xf7    ; GS-Ch.6  off
+EX x41,x10,x42,x12,{x40,x17,x02,x10},xf7    ; GS-Ch.7  off
+EX x41,x10,x42,x12,{x40,x18,x02,x10},xf7    ; GS-Ch.8  off
+EX x41,x10,x42,x12,{x40,x19,x02,x10},xf7    ; GS-Ch.9  off
+EX x41,x10,x42,x12,{x40,x10,x02,x10},xf7    ; GS-Ch.10 off
+EX x41,x10,x42,x12,{x40,x1a,x02,x10},xf7    ; GS-Ch.11 off
+EX x41,x10,x42,x12,{x40,x1b,x02,x10},xf7    ; GS-Ch.12 off
+EX x41,x10,x42,x12,{x40,x1c,x02,x10},xf7    ; GS-Ch.13 off
+EX x41,x10,x42,x12,{x40,x1d,x02,x10},xf7    ; GS-Ch.14 off
+EX x41,x10,x42,x12,{x40,x1e,x02,x10},xf7    ; GS-Ch.15 off
+EX x41,x10,x42,x12,{x40,x1f,x02,x10},xf7    ; GS-Ch.16 off
+
+
+■ フェードアウト設定例（マスターボリューム使用）
+
+;４小節かけてフェードアウト
+1A Z{z0=128} [Z{z0=z0-4} EXx41,x10,x42,x12,{x40,x00,x04,z0},xf7 r8]32
+
+;８小節かけてフェードアウト
+1A Z{z0=128} [Z{z0=z0-2} EXx41,x10,x42,x12,{x40,x00,x04,z0},xf7 r8]64
+
+
+■ その他の設定等
+
+IB8,2,32,12,18     ; IBコマンドの設定例
+IB20,2,32,24,48    ; IBコマンドの凶悪な設定例
+FE3,0,8,-50,2.,50  ; FEコマンドの設定例
+
+・ポート指定メタイベント（by NT-3）
+
+EExff,x21,1,n      ; 最後の値がポート番号です。S-MPUなら0がAポート,1がBポート。
+                   ; MPU+RSなら0がMPU、1がRSです。（ドライバの設定にもよる）
+
+A EExff,x21,1,1 C1 ; B-port Ch.1  　のような指定でＯＫです。
+                   ; SC-88などで32パートデータを作るときには
+                   ; 必須になると思います。
+
+
+■ 補足説明
+
+・リバーブマクロのｎの値
+0. Room 1	4. Hall 2
+1. Room 2	5. Plate
+2. Room 3	6. Delay
+3. Hall 1	7. Panning Delay
+
+・コーラスマクロのｎの値
+0. Chorus 1	4. Feedback Chorus
+1. Chorus 2	5. Flanger
+2. Chorus 3	6. Short Delay
+3. Chorus 4	7. Short Delay (FB)
+
+・ディレイマクロのｎの値(SC-88)
+0. Delay 1	5. Pan Delay 2
+1. Delay 2	6. Pan Delay 3
+2. Delay 3	7. Pan Delay 4
+3. Delay 4	8. Delay to Reverb
+4. Pan Delay 1	9. Pan Repeat
+
+・よく使われるチューニング設定
+EXx41,x10,x42,x12,{x40,0,0,0,x04,x0c,x04},xf7 ; Master-Tune (+196)
+EXx41,x10,x42,x12,{x40,0,0,0,x04,x09,x0d},xf7 ; Master-Tune (+157)
+EXx41,x10,x42,x12,{x40,0,0,0,x04,x07,x06},xf7 ; Master-Tune (+118)
+EXx41,x10,x42,x12,{x40,0,0,0,x04,x04,x0f},xf7 ; Master-Tune (+79)
+EXx41,x10,x42,x12,{x40,0,0,0,x04,x02,x07},xf7 ; Master-Tune (+39)
+EXx41,x10,x42,x12,{x40,0,0,0,x04,x00,x00},xf7 ; Master-Tune (+00)
+EXx41,x10,x42,x12,{x40,0,0,0,x03,x0d,x09},xf7 ; Master-Tune (-39)
+EXx41,x10,x42,x12,{x40,0,0,0,x03,x0b,x01},xf7 ; Master-Tune (-79)
+

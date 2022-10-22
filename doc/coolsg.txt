@@ -1,0 +1,85 @@
+===============================================================================
+    COOLSG.TXT Ver0.1 for MML2MID + XG + PLG100-SG   by 74HC04
+===============================================================================
+（このファイルから必要なコマンドをカット＆ペーストして使ってください）
+
+; 暫定版のため，動作保証はできません．
+
+
+EX x43,x1m,-----
+(*) m = Device No.
+
+■システムリセット
+
+EX x7e,x7f,x09,x01,xf7			; GM SYSTEM ON
+EX x43,x10,x4c,x00,x00,x7e,x00,xf7	; XG SYSTEM ON
+
+■ＳＧボードアサイン
+
+EX x43,x10,x4c,x70,x01,x00,x0n,xf7	;SG PART ASSIGN １枚目(n=CH)
+EX x43,x10,x4c,x70,x01,x01,x0n,xf7	;SG PART ASSIGN ２枚目(n=CH)
+
+■ＳＧシステムメッセージ
+
+EX x43,x10,x5d,x00,x00,x08,n,xf7	;SG SusTimeOut(n=1-100,0=off)
+EX x43,x10,x5d,x00,x00,x0a,n,xf7	;SG InitPhone(n=0-7)
+					(0-ahh 1-ihh 2-uhh 3-ehh 4-ohh
+					 5-rha 6-wha 7-rhu)
+
+■PhoneSEQパラメータチェンジ　ヘッダ
+
+EX x43,x10,x5d,x03,x0n,x00, ・・・音節データ・・・ ,xf7
+
+■ＳＧネイティブパラメータ
+
+EX x43,x10,x5d,x50,x00,x00,n1,n2,xf7	;SG FormantFreqShift1(n1:MSB n2:LSB)
+EX x43,x10,x5d,x50,x00,x02,n1,n2,xf7	;SG FormantFreqShift2(n1:MSB n2:LSB)
+EX x43,x10,x5d,x50,x00,x04,n1,n2,xf7	;SG FormantFreqShift3(n1:MSB n2:LSB)
+EX x43,x10,x5d,x50,x00,x06,n1,n2,xf7	;SG FormantFreqShift4(n1:MSB n2:LSB)
+EX x43,x10,x5d,x50,x00,x08,n1,n2,xf7	;SG FormantFreqShift5(n1:MSB n2:LSB)
+EX x43,x10,x5d,x50,x00,x0a,n1,n2,xf7	;SG FormantFreqShift6(n1:MSB n2:LSB)
+EX x43,x10,x5d,x50,x00,x0c,n1,n2,xf7	;SG NasalFreqShift(n1:MSB n2:LSB)
+EX x43,x10,x5d,x50,x00,x0e,n1,n2,xf7	;SG BuzzBarFreqShift(n1:MSB n2:LSB)
+EX x43,x10,x5d,x50,x00,x12,n1,n2,xf7	;SG AllFormantFreqShift(n1:MSB n2:LSB)
+EX x43,x10,x5d,x50,x00,x15,n,xf7	;SG VFormantLevShift1
+EX x43,x10,x5d,x50,x00,x16,n,xf7	;SG VFormantLevShift2
+EX x43,x10,x5d,x50,x00,x17,n,xf7	;SG VFormantLevShift3
+EX x43,x10,x5d,x50,x00,x18,n,xf7	;SG VFormantLevShift4
+EX x43,x10,x5d,x50,x00,x19,n,xf7	;SG VFormantLevShift5
+EX x43,x10,x5d,x50,x00,x1a,n,xf7	;SG VFormantLevShift6
+EX x43,x10,x5d,x50,x00,x14,n,xf7	;SG NasalLevShift
+EX x43,x10,x5d,x50,x00,x1b,n,xf7	;SG BuzzBarLevShift
+EX x43,x10,x5d,x50,x00,x1d,n,xf7	;SG AllVFolmantLevShift
+EX x43,x10,x5d,x50,x00,x1f,n,xf7	;SG UFormantLevShift1
+EX x43,x10,x5d,x50,x00,x20,n,xf7	;SG UFormantLevShift2
+EX x43,x10,x5d,x50,x00,x21,n,xf7	;SG UFormantLevShift3
+EX x43,x10,x5d,x50,x00,x22,n,xf7	;SG UFormantLevShift4
+EX x43,x10,x5d,x50,x00,x23,n,xf7	;SG UFormantLevShift5
+EX x43,x10,x5d,x50,x00,x24,n,xf7	;SG UFormantLevShift6
+EX x43,x10,x5d,x50,x00,x27,n,xf7	;SG AllFolmantLevShift
+EX x43,x10,x5d,x50,x00,x30,n,xf7	;SG U/V Balance
+EX x43,x10,x5d,x50,x00,x31,n,xf7	;SG Pitch DurTime
+EX x43,x10,x5d,x50,x00,x32,n,xf7	;SG CoartTimeCompRatio
+EX x43,x10,x5d,x50,x00,x33,n,xf7	;SG ConsCompRatio
+EX x43,x10,x5d,x50,x00,x34,n,xf7	;SG PhoneMorphRatio
+EX x43,x10,x5d,x50,x00,x35,n,xf7	;SG CoartMorphRatio
+EX x43,x10,x5d,x50,x00,x69,n,xf7	;SG Cont3Asgn
+EX x43,x10,x5d,x50,x00,x6a,n,xf7	;SG C3Param1Serect
+EX x43,x10,x5d,x50,x00,x6b,n,xf7	;SG C3Param2Serect
+EX x43,x10,x5d,x50,x00,x6c,n,xf7	;SG C3Param3Serect
+EX x43,x10,x5d,x50,x00,x6d,n,xf7	;SG C3Param4Serect
+EX x43,x10,x5d,x50,x00,x6e,n,xf7	;SG C3Param1Depth
+EX x43,x10,x5d,x50,x00,x6f,n,xf7	;SG C3Param2Depth
+EX x43,x10,x5d,x50,x00,x70,n,xf7	;SG C3Param3Depth
+EX x43,x10,x5d,x50,x00,x71,n,xf7	;SG C3Param4Depth
+EX x43,x10,x5d,x50,x00,x72,n,xf7	;SG Cont4Asgn
+EX x43,x10,x5d,x50,x00,x73,n,xf7	;SG C4Param1Serect
+EX x43,x10,x5d,x50,x00,x74,n,xf7	;SG C4Param2Serect
+EX x43,x10,x5d,x50,x00,x75,n,xf7	;SG C4Param3Serect
+EX x43,x10,x5d,x50,x00,x76,n,xf7	;SG C4Param4Serect
+EX x43,x10,x5d,x50,x00,x77,n,xf7	;SG C4Param1Depth
+EX x43,x10,x5d,x50,x00,x78,n,xf7	;SG C4Param2Depth
+EX x43,x10,x5d,x50,x00,x79,n,xf7	;SG C4Param3Depth
+EX x43,x10,x5d,x50,x00,x7a,n,xf7	;SG C4Param4Depth
+
+

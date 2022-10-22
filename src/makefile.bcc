@@ -1,0 +1,35 @@
+# Makefile for BCC
+CONFIGS = -DDEFAULT_MSCODE -DMSG_TO_STDOUT
+
+CC = bcc
+#CFLAGS = -g
+CFLAGS = -DBCC -ms -2 $(CONFIGS)
+#LIBS = -lm
+LIBS =
+OBJS = file.obj charproc.obj note.obj mmlproc.obj mml2mid.obj
+
+mml2mid : $(OBJS)
+	$(CC) -emml2mid.exe $(CFLAGS) $(OBJS) $(LIBS)
+
+clean :
+        del mml2mid.exe
+        del charproc.obj
+        del note.obj
+        del mmlproc.obj
+        del mml2mid.obj
+        del file.obj
+
+file.obj : file.asm
+	tasm /ml file
+
+charproc.obj : charproc.h charproc.c
+	$(CC) $(CFLAGS) -c charproc.c
+
+note.obj : note.c
+	$(CC) $(CFLAGS) -c note.c
+
+mmlproc.obj : mmlproc.h mmlproc.c
+	$(CC) $(CFLAGS) -c mmlproc.c
+
+mml2mid.obj : mml2mid.h mml2mid.c
+	$(CC) $(CFLAGS) -c mml2mid.c

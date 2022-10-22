@@ -1,0 +1,92 @@
+
+; KORG TR-Rack用サンプルExclusiveデータ  by MKR
+
+;
+; KORG TR-Rackユーザで、高度な設定をしたい場合に御利用下さい。
+;
+
+$z 15,x7f,0,0,x7f,1,0		;Macro
+Z EXx42,x30,x3b,x4e,x04,x00,xf7	;To Multi Mode
+
+;==================== TR-Rack Multi Dump ========================
+;---------------- Header Block --------------------
+Z EXx42,x30,x3B,x48,x00,x00,x00,x1E,x4E,
+;------------ Reserved Block (0~103) --------------
+Z {TxFF,x01,x6E,xE8,xFF,x01,x6E,xE8,
+Z  [x00,]76"InitialMulti",x20,x20,x20,x00,x00,
+Z  x00,x00,x00,
+;------------ Insertion Effect Block --------------
+Z [x00,]22	;Effect 1(NULL)
+Z [x00,]22	;Effect 2(NULL)
+Z [x00,]22	;Effect 3(NULL)
+Z [x00,]22	;Effect 4(NULL)
+Z [x00,]22	;Effect 5(NULL)
+Z [x00,]22	;Effect 6(NULL)
+Z [x00,]22	;Effect 7(NULL)
+Z [x00,]22	;Effect 8(NULL)
+;-------------- Master Effect 1 --------------
+Z x32,x12,x73,x6E,x28,x64,x64,x00,x00,x00,x64,x00,x04,x85,x00,x00,
+; Type,Pan,Return
+Z  x04,x00,x40,
+;-------------- Master Effect 2(Reverb) --------------
+Z B5_30,	;EQ Trim(0-30)
+Z B5_0,		;Pre Delay Thru(0-30)
+Z 60,		;Pre Delay[ms](0-200)
+Z B7_30,	;Hi Dump[%](0-100)
+Z B7_30,	;Reverb Time[.1s](0-30)
+Z 0,		;Amt(-100~100)
+Z B7_60,	;ER2 Delay[ms](0-200)*1
+Z B7_30,	;ER1 Delay[ms](0-200)*1
+Z B5_ 0,	;High EQ Gain(-15~15)
+Z B5_ 0,	;Low EQ Gain(-15~15)
+Z B6_0,		;Src(0-25)*2
+Z B7_100,	;Output Level(0-100)
+Z B5_30,	;Spread(0-30)
+Z B7_25,	;ER4-Delay[ms](0-200)*1
+Z B7_65,	;ER3-Delay[ms](0-200)*1
+Z B3_0,B5_20,	;ER1 Pan(0-6),Delay[ms](0-30)
+Z B3_2,B5_15,	;ER2 Pan(0-6),Delay[ms](0-30)
+Z B3_4,B5_15,	;ER3 Pan(0-6),Delay[ms](0-30)
+Z B3_6,B5_20,	;ER4 Pan(0-6),Delay[ms](0-30)
+Z 4,		;Effect Type
+Z 100,		;Pan to Out3/4
+Z 64,		;Effect Return
+;-------------
+;*1 ERn Delayの遅延時間は、0,1,...,49,50,52,54,...,198,200の指定が出来る。
+;   50を越える指定をする時は[(Time+50)/2]がパラメータとなる。
+;*2 (0-25) = None,Gate1,Gate1S,Gate2,Gate2S,NoteNo,Vel,AfterTouch,
+;   JS+Y#1,JS-Y#2,JS(X),RbX#16,RbZ#17,SW1#80,SW2#81,FSW#82,Pdl#04,Sus#64,
+;   Vol#07,Pan#10,Exp#11,FX1#12,FX2#13,Sld#18,CC#19,Tempo
+;----------------- Master EQ --------------
+Z x00,x00,	;EQ Low,EQ High
+;-------------- Track Parameter Block ---------------
+; PRG,BNK, RxCH,  VOL,  BR,TRS, Dt,DLY, PAN,SND1,SND2,***,FX ASSIGN
+Z x00,  0,  x00,  127,  24,  0,  0,  0,  64,   0,   0,$z,0,
+Z x00,  0,  x01,  127,  24,  0,  0,  0,  64,   0,   0,$z,0,
+Z x00,  0,  x02,  127,  24,  0,  0,  0,  64,   0,   0,$z,0,
+Z x00,  0,  x03,  127,  24,  0,  0,  0,  64,   0,   0,$z,0,
+Z x00,  0,  x04,  127,  24,  0,  0,  0,  64,   0,   0,$z,0,
+Z x00,  0,  x05,  127,  24,  0,  0,  0,  64,   0,   0,$z,0,
+Z x00,  0,  x06,  127,  24,  0,  0,  0,  64,   0,   0,$z,0,
+Z x00,  0,  x07,  127,  24,  0,  0,  0,  64,   0,   0,$z,0,
+Z x00,  0,  x08,  127,  24,  0,  0,  0,  64,   0,   0,$z,0,
+Z x00,  0,  x09,  127,  24,  0,  0,  0,  64,   0,   0,$z,0,
+Z x00,  0,  x0a,  127,  24,  0,  0,  0,  64,   0,   0,$z,0,
+Z x00,  0,  x0b,  127,  24,  0,  0,  0,  64,   0,   0,$z,0,
+Z x00,  0,  x0c,  127,  24,  0,  0,  0,  64,   0,   0,$z,0,
+Z x00,  0,  x0d,  127,  24,  0,  0,  0,  64,   0,   0,$z,0,
+Z x00,  0,  x0e,  127,  24,  0,  0,  0,  64,   0,   0,$z,0,
+Z x00,  0,  x0f,  127,  24,  0,  0,  0,  64,   0,   0,$z,0
+Z },xf7
+; RxChのBit5を1にすると、そのトラックをオフに出来る
+
+;====================== TR-Rack Dump ここまで =======================
+
+;このバルクダンプは、Master Effect Return以外は工場出荷の状態です。
+;エフェクトやトラックなどを好きな値に変更し、このエクスクルーシブを
+;TR-Rackに送れば、TR-Rackをマルチ音源として使用することが容易となり
+;ます。なお、Insert EffectとMaster Effect 1は未解析です(^^;
+;Master Effect 2も選択するエフェクトタイプによっては、必ずしもこの
+;パラメータ構造にはならないので、注意して下さい。
+;各パラメータの意味は「エフェクトガイト」を参照して下さい。
+

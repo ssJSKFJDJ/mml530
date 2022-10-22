@@ -1,0 +1,33 @@
+# Makefile for `egcs on Win32' (mingw32)
+CONFIGS = -DDEFAULT_MSCODE -DMSG_TO_STDOUT
+# tkmml2midとのからみで今のところ-DMSG_TO_STDOUTを含めてある
+
+CC = gcc
+CFLAGS = -O2 -DUNIX -DEGCSW32 $(CONFIGS)
+EXE = mml2mid.exe
+LIBS =
+OBJS = file.o charproc.o note.o mmlproc.o mml2mid.o
+
+all : $(EXE)
+
+clean :
+	del *.exe
+	del *.o
+
+$(EXE) : $(OBJS)
+	$(CC) -s -o $(EXE) $(CFLAGS) $(OBJS) $(LIBS)
+
+file.o : file.c file.h win.h
+	$(CC) $(CFLAGS) -c file.c
+
+charproc.o : charproc.c charproc.h win.h file.h
+	$(CC) $(CFLAGS) -c charproc.c
+
+note.o : note.c win.h file.h charproc.h mmlproc.h
+	$(CC) $(CFLAGS) -c note.c
+
+mmlproc.o : mmlproc.c mmlproc.h charproc.h win.h file.h
+	$(CC) $(CFLAGS) -c mmlproc.c
+
+mml2mid.o : mml2mid.c mml2mid.h mmlproc.h charproc.h win.h file.h
+	$(CC) $(CFLAGS) -c mml2mid.c

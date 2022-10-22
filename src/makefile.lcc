@@ -1,0 +1,35 @@
+# LSI C-86 v3.30 makefile
+CONFIGS = -DDEFAULT_MSCODE -DMSG_TO_STDOUT
+#CONFIGS = -DDEFAULT_MSCODE -DMSG_TO_STDOUT -h
+
+CC = lcc
+CFLAGS = -O -DLSI_C $(CONFIGS)
+LFLAGS = -k"-s 1800"
+# 6Kbytes stack
+EXE = mml2mid.exe
+LIBS =
+OBJS = file.obj charproc.obj note.obj mmlproc.obj mml2mid.obj
+
+all : $(EXE)
+
+clean :
+	del *.exe
+	del *.obj
+
+$(EXE) : $(OBJS)
+	$(CC) -o $(EXE) $(LFLAGS) $(OBJS) $(LIBS)
+
+file.obj : file.c file.h win.h
+	$(CC) $(CFLAGS) -c file.c
+
+charproc.obj : charproc.c charproc.h win.h file.h
+	$(CC) $(CFLAGS) -c charproc.c
+
+note.obj : note.c win.h file.h charproc.h mmlproc.h
+	$(CC) $(CFLAGS) -c note.c
+
+mmlproc.obj : mmlproc.c mmlproc.h charproc.h win.h file.h
+	$(CC) $(CFLAGS) -c mmlproc.c
+
+mml2mid.obj : mml2mid.c mml2mid.h mmlproc.h charproc.h win.h file.h
+	$(CC) $(CFLAGS) -c mml2mid.c

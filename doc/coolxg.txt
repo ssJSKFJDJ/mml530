@@ -1,0 +1,126 @@
+===============================================================================
+    COOLXG.TXT Ver1.0 for MML2MID + XG      by おぶ
+===============================================================================
+（このファイルから必要なコマンドをカット＆ペーストして使ってください）
+
+■ 音色エディット系NRPN
+
+N1,x08,n N1,x09,n N1,x10,n	; ビブラート設定例(rate depth delay)
+N1,x63,n N1,x64,n N1,x66,n	; エンベロープ設定例(attak decay release)
+N1,x20,n			; カットオフフリクエンシー(=TCn)
+N1,x21,n			; レゾナンス(=TRn)
+N1,x24,n			; ハイパスフィルタ
+N1,x30,n N1,x31,n		; EQゲイン(bass trable)
+N1,x34,n N1,x35,n		; EQフリクエンシー(bass trable)
+
+
+■ ドラムエディット系NRPN
+
+Nx14,note,n	; ドラムカットオフフリクエンシー(0-64-127)
+Nx15,note,n	; ドラムレゾナンス(0-64-127)
+Nx24,note,n	; ドラムハイパスフィルタ(0-64-127)
+Nx16,note,n	; ドラムＥＧアタックレイト(0-64-127)
+Nx03,note,n	; ドラムＥＧディケイレイト(0-64-127)
+Nx18,note,n	; ドラムピッチコース(0-64-127)
+Nx19,note,n	; ドラムピッチファイン(0-64-127)
+Nx1a,note,n	; ドラムレベル(0-64-127)
+Nx1c,note,n	; ドラムパン(0-64-127)
+Nx1d,note,n	; ドラムリバーブ(0-127)
+Nx1e,note,n	; ドラムコーラス(0-127)
+Nx1f,note,n	; ドラムバリエーション(0-127又は0,1-127)
+Nx30,note,n	; ドラムＥＱベースゲイン(0-64-127)
+Nx31,note,n	; ドラムＥＱトレブルゲイン(0-64-127)
+Nx34,note,n	; ドラムＥＱベースフリクエンシー(4-40)
+Nx35,note,n	; ドラムＥＱトレブルフリクエンシー(28-58)
+
+
+■ 主要コントロールチェンジ
+
+y64,n	 ; ホールドの量の設定
+y67,n	 ; ソフト化の量の設定
+y91,n    ; リバーブの量の設定
+y93,n    ; コーラスの量の設定
+y94,n    ; バリエーションの量の設定(Variation Connection=SYSTEMの時)
+
+
+■ 主要エクスクルーシブ
+
+・音源初期化(これらは実行に約50msかかります。休符を忘れずに)
+EX x7e,x7f,x09,x01,xf7			; GM SYSTEM ON
+EX x43,x10,x4c,x00,x00,x7e,x00,xf7	; XG SYSTEM ON
+
+・マップチェンジ
+EX x43,x10,x49,x00,x00,x12,n,xf7	; 0:MU Basic 1:MU100 Native
+
+・リバーブ(リバーブのタイプによってパラメータの内容が違います)
+EX x43,x10,x4c,x02,x01,x00,n1,n2,xf7	; Reverb Type(n1:MSB n2:LSB)
+EX x43,x10,x4c,x02,x01,x02,n,xf7	; Reverb Parameter1
+EX x43,x10,x4c,x02,x01,x03,n,xf7	; Reverb Parameter2
+EX x43,x10,x4c,x02,x01,x04,n,xf7	; Reverb Parameter3
+EX x43,x10,x4c,x02,x01,x05,n,xf7	; Reverb Parameter4
+EX x43,x10,x4c,x02,x01,x06,n,xf7	; Reverb Parameter5
+EX x43,x10,x4c,x02,x01,x07,n,xf7	; Reverb Parameter6
+EX x43,x10,x4c,x02,x01,x08,n,xf7	; Reverb Parameter7
+EX x43,x10,x4c,x02,x01,x09,n,xf7	; Reverb Parameter8
+EX x43,x10,x4c,x02,x01,x0a,n,xf7	; Reverb Parameter9
+EX x43,x10,x4c,x02,x01,x0b,n,xf7	; Reverb Parameter10
+EX x43,x10,x4c,x02,x01,x10,n,xf7	; Reverb Parameter11
+EX x43,x10,x4c,x02,x01,x11,n,xf7	; Reverb Parameter12
+EX x43,x10,x4c,x02,x01,x12,n,xf7	; Reverb Parameter13
+EX x43,x10,x4c,x02,x01,x13,n,xf7	; Reverb Parameter14
+EX x43,x10,x4c,x02,x01,x14,n,xf7	; Reverb Parameter15
+EX x43,x10,x4c,x02,x01,x15,n,xf7	; Reverb Parameter16
+EX x43,x10,x4c,x02,x01,x0c,n,xf7	; Reverb Return
+EX x43,x10,x4c,x02,x01,x0d,n,xf7	; Reverb Pan
+
+・コーラス(コーラスのタイプによってパラメータの内容が違います)
+EX x43,x10,x4c,x02,x01,x20,n1,n2,xf7	; Chorus Type(n1:MSB n2:LSB)
+EX x43,x10,x4c,x02,x01,x22,n,xf7	; Chorus Parameter1
+EX x43,x10,x4c,x02,x01,x23,n,xf7	; Chorus Parameter2
+EX x43,x10,x4c,x02,x01,x24,n,xf7	; Chorus Parameter3
+EX x43,x10,x4c,x02,x01,x25,n,xf7	; Chorus Parameter4
+EX x43,x10,x4c,x02,x01,x26,n,xf7	; Chorus Parameter5
+EX x43,x10,x4c,x02,x01,x27,n,xf7	; Chorus Parameter6
+EX x43,x10,x4c,x02,x01,x28,n,xf7	; Chorus Parameter7
+EX x43,x10,x4c,x02,x01,x29,n,xf7	; Chorus Parameter8
+EX x43,x10,x4c,x02,x01,x2a,n,xf7	; Chorus Parameter9
+EX x43,x10,x4c,x02,x01,x2b,n,xf7	; Chorus Parameter10
+EX x43,x10,x4c,x02,x01,x30,n,xf7	; Chorus Parameter11
+EX x43,x10,x4c,x02,x01,x31,n,xf7	; Chorus Parameter12
+EX x43,x10,x4c,x02,x01,x32,n,xf7	; Chorus Parameter13
+EX x43,x10,x4c,x02,x01,x33,n,xf7	; Chorus Parameter14
+EX x43,x10,x4c,x02,x01,x34,n,xf7	; Chorus Parameter15
+EX x43,x10,x4c,x02,x01,x35,n,xf7	; Chorus Parameter16
+EX x43,x10,x4c,x02,x01,x2c,n,xf7	; Chorus Return
+EX x43,x10,x4c,x02,x01,x2d,n,xf7	; Chorus Pan
+EX x43,x10,x4c,x02,x01,x2e,n,xf7	; Send Chorus to Reverb
+
+・バリエーション(バリエーションのタイプによってパラメータの内容が違います)
+EX x43,x10,x4c,x02,x01,x40,n1,n2,xf7	; Variation Type(n1:MSB n2:LSB)
+EX x43,x10,x4c,x02,x01,x42,n1,n2,xf7	; Variation Parameter1(n1:MSB n2:LSB)
+EX x43,x10,x4c,x02,x01,x44,n1,n2,xf7	; Variation Parameter2(n1:MSB n2:LSB)
+EX x43,x10,x4c,x02,x01,x46,n1,n2,xf7	; Variation Parameter3(n1:MSB n2:LSB)
+EX x43,x10,x4c,x02,x01,x48,n1,n2,xf7	; Variation Parameter4(n1:MSB n2:LSB)
+EX x43,x10,x4c,x02,x01,x4a,n1,n2,xf7	; Variation Parameter5(n1:MSB n2:LSB)
+EX x43,x10,x4c,x02,x01,x4c,n1,n2,xf7	; Variation Parameter6(n1:MSB n2:LSB)
+EX x43,x10,x4c,x02,x01,x4e,n1,n2,xf7	; Variation Parameter7(n1:MSB n2:LSB)
+EX x43,x10,x4c,x02,x01,x50,n1,n2,xf7	; Variation Parameter8(n1:MSB n2:LSB)
+EX x43,x10,x4c,x02,x01,x52,n1,n2,xf7	; Variation Parameter9(n1:MSB n2:LSB)
+EX x43,x10,x4c,x02,x01,x54,n1,n2,xf7	; Variation Parameter10(n1:MSB n2:LSB)
+EX x43,x10,x4c,x02,x01,x70,n,xf7	; Variation Parameter11
+EX x43,x10,x4c,x02,x01,x71,n,xf7	; Variation Parameter12
+EX x43,x10,x4c,x02,x01,x72,n,xf7	; Variation Parameter13
+EX x43,x10,x4c,x02,x01,x73,n,xf7	; Variation Parameter14
+EX x43,x10,x4c,x02,x01,x74,n,xf7	; Variation Parameter15
+EX x43,x10,x4c,x02,x01,x75,n,xf7	; Variation Parameter16
+EX x43,x10,x4c,x02,x01,x56,n,xf7	; Variation Return
+EX x43,x10,x4c,x02,x01,x57,n,xf7	; Variation Pan
+EX x43,x10,x4c,x02,x01,x58,n,xf7	; Send Variation to Reverb
+EX x43,x10,x4c,x02,x01,x59,n,xf7	; Send Variation to Chorus
+EX x43,x10,x4c,x02,x01,x5a,n,xf7	; Variation Connection
+EX x43,x10,x4c,x02,x01,x5b,n,xf7	; Variation Part Number
+EX x43,x10,x4c,x02,x01,x5c,n,xf7	; MW Variation Contorol Depth
+EX x43,x10,x4c,x02,x01,x5d,n,xf7	; BEND Variation Contorol Depth
+EX x43,x10,x4c,x02,x01,x5e,n,xf7	; CAT Variation Contorol Depth
+EX x43,x10,x4c,x02,x01,x5f,n,xf7	; AC1 Variation Contorol Depth
+EX x43,x10,x4c,x02,x01,x60,n,xf7	; AC2 Variation Contorol Depth
