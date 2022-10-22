@@ -1,90 +1,90 @@
- ����ѥ�����ˡ
+ コンパイル数恕
 
 
-��UNIX��ǤΥ���ѥ���ξ��
+ˇUNIX惧でのコンパイルの眷圭
 
-  src/makefile��Ȥ��ޤ����ޤ�������ѥ���ˤ�ANSI C(�㤨��gcc)��ɬ�פ�
-  ��������ѥ�����ϰʲ����̤�Ǥ���
+  src/makefileを蝗います。また、コンパイルにはANSI C(毋えばgcc)が涩妥で
+  す。コンパイル缄界は笆布の奶りです。
 
-  1) src�ǥ��쥯�ȥ겼�˰ܤ�
-  2) ɬ�פ˱�����makefile�򤤤���(�ºݤˤϡ�������ɬ�פΤ������¿���ʤ�
-     �Ȼפ��ޤ�)��gcc�ʳ���C�����Ϥ����Ѥξ��ϡ�CC�����CFLAGS�������
-     Ŭ�ڤ��ѹ����Ʋ��������ޤ���CONFIGS�������ǽ�ʥ���ѥ��륹���å���
-     ��̣�ϲ��˵����ޤ������󥹥ȡ�����Υǥ��쥯�ȥ�(BINDIR, MANDIR)�⤪
-     ���ߤ˱������ѹ����Ʋ��������������������˻��ꤷ���ǥ��쥯�ȥ꤬��¸
-     �Ǥ���ɬ�פ�����ޤ���
-  3) make	�Ĥ��ޤ��Ǥ��ʤ��ä��饽������Ŭ���������Ʋ�����^^;
-  4) make install(ɬ�פ˱�����su���Ƥ���)
-
-
-��Win32���egcs(mingw32)�ǥ���ѥ���(Win32���󥽡����Ǥ����)������
-
-  src/makefile.egc��makefile�˥�͡��ष�ƻȤäƲ�������
+  1) srcディレクトリ布に败る
+  2) 涩妥に炳じてmakefileをいじる(悸狠には、いじる涩妥のある眷圭は驴くない
+     と蛔います)。gcc笆嘲のC借妄废を网脱の眷圭は、CCおよびCFLAGSの年盗を
+     努磊に恃构して布さい。また、CONFIGSで年盗材墙なコンパイルスイッチの
+     罢蹋は布に淡します。インスト〖ル黎のディレクトリ(BINDIR, MANDIR)もお
+     攻みに炳じて恃构して布さい。ただし、そこに回年したディレクトリが贷赂
+     である涩妥があります。
+  3) make	∧うまくできなかったらソ〖スを努倒饯赖して布さい^^;
+  4) make install(涩妥に炳じてsuしてから)
 
 
-��MS-DOS���Borland C��bcc�ˤǥ���ѥ��뤹����
+ˇWin32惧のegcs(mingw32)でコンパイル(Win32コンソ〖ル惹を侯喇)する眷圭
 
-  src/makefile.bcc ��makefile�˥�͡��ष�ƻȤäƲ�������
-  �ʰ���������֥��ȤäƤ��ޤ��Τ�TASM��ɬ�פǤ���
-  Ʊ����DOS�ǥХ��ʥ��bcc�ǥ���ѥ��뤷����ΤǤ���
+  src/makefile.egcをmakefileにリネ〖ムして蝗って布さい。
 
 
-��MS-DOS���LSI C-86��Ǥǥ���ѥ��뤹����
+ˇMS-DOS惧のBorland C∈bcc∷でコンパイルする眷圭
 
-  v5.27����LSI C-86��Ǥǥ���ѥ����ǽ�ˤʤäƤ��ޤ�������ѥ��뤹��
-�ˤϡ�src/makefile.lcc��makefile�˥�͡��ष�ƻȤäƲ��������긵�Ǥϡ�
-v3.30c��Ǥǥ���ѥ���Ǥ��뤳�Ȥ��ǧ���Ƥ��ޤ����ʤ���Ʊ��Ǥϥ��⡼
-���ǥ�Ǥ���ط��塢Ʊ��Ǥ�make����mml2mid�ϡ����ޤ��礭��MML�ե���
-��ϥ���ѥ���Ǥ��ʤ���ǽ��������ޤ���
-  LSI C-86��Ǥξ�硢��󥯻��˥����å���������ǥե����(2500�Х���)
-��ꤢ�������礭�����Ƥ��ʤ��ȡ�����ѥ���ϤǤ��Ƥ������ư��ޤ���
-(¿���Υե�����ǤϤ�����ư���褦�˸����Ƥ⡢�����Υե�����ǰ۾�ư��
-�����ꤷ�ޤ�)��ź�դ�makefile.lcc�Ǥϥ����å���������6k�Х��Ȥ˻��ꤷ��
-���ޤ���ư�����������硢lcc��-h���ץ����(�����å��������Υ����å���
-�Ԥ�)�򥪥�ˤ��ƺƥ���ѥ��뤷�ơ������å���줬�����Ƥ��ʤ����Τ����
-�Ȥ褤�����Τ�ޤ���
-  (��) LSI C-86��ǤΥ��ݡ��ȤϻŪ�ʤ�Τǡ�������ǤϺƤӡ�Ʊ�
-�ǤǤϥ���ѥ���Ǥ��ʤ��ʤ뤫���Τ�ޤ���
+  src/makefile.bcc をmakefileにリネ〖ムして蝗って布さいˉ
+  ∈办婶アセンブラを蝗っていますのでTASMが涩妥です∷
+  票涵のDOS惹バイナリはbccでコンパイルしたものです。
 
 
-��makefile��������ǽ�ʥ���ѥ��륹���å��Ȥ��ΰ�̣
+ˇMS-DOS惧のLSI C-86活咯惹でコンパイルする眷圭
 
-  �����Υ����å���ɬ�פ˱����Ƴ�makefile���CONFIGS�ޥ���������˲ä�
-  �Ʋ�������
-
-  -DUSE_NONMINUS_OPTS �� ������������Ȱʲ������㤬ͭ���ˤʤ�ޤ���
-      �����ޥ�ɰ����Τ�����MML�ե�����̾�μ��ΰ�����2ʸ���ʲ��ʤ顢����
-	�Ȥ���ʹߤΰ����ϡ�-�פ�̵ͭ�˴ؤ�餺���ƥ��ץ��������ȸ���
-	�����
-      ��MIDI�ե�����̾����ΰ�������-�פǻϤޤäƤ��ʤ��Ƥ⥨�顼�ˤ�
-	�ʤ餺��������̵���˥��ץ����������������
-  -DCASE_INSENSITIVE_OPTS �� ���ץ���󥹥��å�����ʸ����ʸ������̤���
-    ���褦�ˤʤ�ޤ���
-  -DDEFAULT_MSCODE �� MML�ե��������ʸ����Υ����ɤȤ���MS����������(��
-    �ե�JIS)���ꤹ��Τ�ǥե���Ȥˤ��ޤ�������������ʤ���硢ʸ����
-    �Υ����ɤȤ���EUC�����ɤ��ꤹ��Τ��ǥե���Ȥˤʤ�ޤ���DOS�Ǥ���
-    ��Win32�ǤϤ�����������make����Ƥ��ޤ�(makefile.bcc, makefile.egc
-    �ˤ⤳��������ޤޤ�Ƥ��ޤ�)��
-  -DNONANSI_REALLOC �� ���Ȥ���C����ѥ����realloc(), free()��ANSI C��
-    ���ʤ˽�򤷤Ƥ��ʤ�����������ޤ���ANSI C�Ǥϡ�realloc()����1����
-    ��NULL���Ϥ����ꡢfree()�ΰ�����NULL���Ϥ����ꤷ�Ƥ������ư��뤳
-    �Ȥ����Ƥ��ꡢ�ܥ������⤽�������Ȥ��Ƥ��ޤ��������Ǥʤ�����ѥ�
-    ������Ѥ�����ϡ����Υ����å���������Ʋ�������
-  -DNO_MEMMOVE �� ���Ȥ���C����ѥ���˴ؿ�memmove()���ʤ������������
-    ��������
-  -DMSG_TO_STDOUT �� ������������ȡ��Ƽ��å�������stderr�Ǥʤ�stdout
-    �˽��Ϥ���ޤ���DOS�Ǥ����Win32�ǤϤ�����������make����Ƥ��ޤ�
-    (makefile.bcc, makefile.egc�ˤ⤳��������ޤޤ�Ƥ��ޤ�)��
+  v5.27からLSI C-86活咯惹でコンパイル材墙になっています。コンパイルする
+には、src/makefile.lccをmakefileにリネ〖ムして蝗って布さい。缄傅では、
+v3.30c活咯惹でコンパイルできることを澄千しています。なお、票活咯惹はスモ〖
+ルモデルである簇犯惧、票活咯惹でmakeしたmml2midは、あまり络きなMMLファイ
+ルはコンパイルできない材墙拉があります。
+  LSI C-86活咯惹の眷圭、リンク箕にスタックサイズをデフォルト(2500バイト)
+よりある镍刨络きくしてやらないと、コンパイルはできても赖撅に瓢侯しません
+(驴くのファイルではちゃんと瓢くように斧えても、办婶のファイルで佰撅瓢侯
+したりします)。藕烧のmakefile.lccではスタックサイズを6kバイトに回年して
+います。瓢侯がおかしい眷圭、lccの-hオプション(スタックサイズのチェックを
+乖う)をオンにして浩コンパイルして、スタック邦れが弹きていないか澄かめる
+とよいかも梦れません。
+  (庙) LSI C-86活咯惹のサポ〖トは活赋弄なもので、经丸の惹は浩び、票活咯
+惹ではコンパイルできなくなるかも梦れません。
 
 
-���������ˤĤ��Ƽ㴳����
+ˇmakefile面で年盗材墙なコンパイルスイッチとその罢蹋
 
-  ������֥����ե�����(file.asm)������ޤ����������DOS���Borland C��
-����ѥ��뤹���礷���Ȥ��ޤ���UNIX�ǡ�Win32���󥽡����Ǥ�����C�ǽ�
-����Ƥ��ޤ��Τǡ�������֥�����򤷤Ƥʤ��Ƥ��¤�ϲ�ǽ�Ǥ���(^_^)
-  �ޤ�������äȺ��𤷤䤹���ΤǤ�����Win32���󥽡����Ǥ򥳥�ѥ��뤹��
-���� -DUNIX �Υ���ѥ��륹���å����������ޤ�(�դ� -DWINDOWS �������
-��ޤ���)��POSIX�ߴ��Υ饤�֥����󶡤��Ƥ���egcs�ˤ�äơ�UNIX�Ѥε���
-��ۤܤ��Τޤ�ή�Ѥ��ƥ���ѥ��뤷�Ƥ��뤿��Ǥ���
-  #ifdef WINDOWS����ʬ�ϡ����߳�ȯ�������Windows GUI�ǤΤ���ε��ҤǤ�
-(�����Ǥϡ�Windows���Ѥ���ʬ�Υ������ϸ�������Ƥ��ޤ���)��
+  布淡のスイッチを、涩妥に炳じて称makefile面のCONFIGSマクロの年盗に裁え
+  て布さい。
+
+  -DUSE_NONMINUS_OPTS ∧ これを年盗すると笆布の泼毋が铜跟になります。
+      ˇコマンド苞眶のうち、MMLファイル叹の肌の苞眶が2矢机笆布なら、それ
+	とそれ笆惯の苞眶は≈-∽の铜痰に簇わらず链てオプション苞眶と斧な
+	される
+      ˇMIDIファイル叹より稿の苞眶が≈-∽で幌まっていなくてもエラ〖には
+	ならず、それらは痰掘凤にオプション苞眶胺いされる
+  -DCASE_INSENSITIVE_OPTS ∧ オプションスイッチの络矢机井矢机を惰侍しな
+    いようになります。
+  -DDEFAULT_MSCODE ∧ MMLファイル柒の矢机误のコ〖ドとしてMS戳机コ〖ド(シ
+    フトJIS)を簿年するのをデフォルトにします。この年盗がない眷圭、矢机误
+    のコ〖ドとしてEUCコ〖ドを簿年するのがデフォルトになります。DOS惹およ
+    びWin32惹はこれを年盗してmakeされています(makefile.bcc, makefile.egc
+    にもこの年盗が崔まれています)。
+  -DNONANSI_REALLOC ∧ お蝗いのCコンパイラのrealloc(), free()がANSI Cの
+    惮呈に洁凋していない眷圭に年盗します。ANSI Cでは、realloc()の妈1苞眶
+    にNULLを畔したり、free()の苞眶にNULLを畔したりしても赖撅に瓢侯するこ
+    とを年めており、塑ソ〖スもそれを涟捏としています。そうでないコンパイ
+    ラを网脱する眷圭は、このスイッチを年盗して布さい。
+  -DNO_MEMMOVE ∧ お蝗いのCコンパイラに簇眶memmove()がない眷圭に年盗して
+    布さい。
+  -DMSG_TO_STDOUT ∧ これを年盗すると、称硷メッセ〖ジがstderrでなくstdout
+    に叫蜗されます。DOS惹およびWin32惹はこれを年盗してmakeされています
+    (makefile.bcc, makefile.egcにもこの年盗が崔まれています)。
+
+
+ˇソ〖スについて笺闯庙淡
+
+  アセンブリ咐胳ファイル(file.asm)がありますが、これはDOS惧のBorland Cで
+コンパイルする眷圭しか蝗われません。UNIX惹、Win32コンソ〖ル惹は链てCで今
+かれていますので、アセンブラを妄豺してなくても猖陇は材墙ですよ(^_^)
+  また、ちょっと寒宛しやすいのですが、Win32コンソ〖ル惹をコンパイルする
+眷圭も -DUNIX のコンパイルスイッチが年盗されます(嫡に -DWINDOWS は年盗さ
+れません)。POSIX高垂のライブラリを捏丁しているegcsによって、UNIX脱の淡揭
+をほぼそのまま萎脱してコンパイルしているためです。
+  #ifdef WINDOWSの婶尸は、附哼倡券面们面のWindows GUI惹のための淡揭です
+(この惹は、Windows漓脱の婶尸のソ〖スは给倡されていません)。
