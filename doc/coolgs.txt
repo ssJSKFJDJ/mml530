@@ -1,26 +1,26 @@
 ===============================================================================
-    COOLGS.TXT Ver3.0 for MML2MID + SC-88   by �ӣΣ¡����ԣ�
+    COOLGS.TXT Ver3.0 for MML2MID + SC-88   by ＳＮＢ】ＡＴＭ
 ===============================================================================
-�ʤ��Υե����뤫��ɬ�פʥ��ޥ�ɤ򥫥åȡ��ڡ����Ȥ��ƻȤäƤ���������
+∈このファイルから涩妥なコマンドをカット□ペ〖ストして蝗ってください∷
 
-�� �������ǥ��åȷ�NRPN
+ⅲ 不咖エディット废NRPN
 
-N1,8,64 N1,9,72 N1,10,68	; �ӥ֥顼��������(rate depth delay)
-N1,x63,54 N1,x64,94 N1,x66,58	; ����٥�����������(attak decay release)
-N1,x20,n			; ���åȥ��ռ��ȿ�(=TCn)
-N1,x21,n			; �쥾�ʥ�(=TRn)
-
-
-�� �ɥ�२�ǥ��åȷ�NRPN
-
-Nx18,note,n	; �ɥ��ԥå�(0-64-127)
-Nx1A,note,n	; �ɥ���٥�(0-64-127)
-Nx1C,note,n	; �ɥ��ѥ�(0-64-127)
-Nx1D,note,n	; �ɥ���С���(0-64-127)
-Nx1E,note,n	; �ɥ�ॳ���饹(0-64-127)
+N1,8,64 N1,9,72 N1,10,68	; ビブラ〖ト肋年毋(rate depth delay)
+N1,x63,54 N1,x64,94 N1,x66,58	; エンベロ〖プ肋年毋(attak decay release)
+N1,x20,n			; カットオフ件侨眶(=TCn)
+N1,x21,n			; レゾナンス(=TRn)
 
 
-�� �����ʥɥ��ޥ�����
+ⅲ ドラムエディット废NRPN
+
+Nx18,note,n	; ドラムピッチ(0-64-127)
+Nx1A,note,n	; ドラムレベル(0-64-127)
+Nx1C,note,n	; ドラムパン(0-64-127)
+Nx1D,note,n	; ドラムリバ〖ブ(0-64-127)
+Nx1E,note,n	; ドラムコ〖ラス(0-64-127)
+
+
+ⅲ 守网なドラムマクロ礁
 
 $k k100 J36	; kick
 $s k100 J38	; snare 1
@@ -35,23 +35,23 @@ $b k100 J45	; tom-M
 $c k100 J41	; tom-L
 
 
-�� ���ץ���ȥ����������
+ⅲ 肩妥コントロ〖ルチェンジ
 
-y64,n	 ; �ۡ���ɤ��̤�����
-y67,n	 ; ���եȲ����̤�����
-y91,n    ; ��С��֤��̤�����
-y93,n    ; �����饹���̤�����
-y94,n    ; �ǥ��쥤���̤�����(SC-88)
+y64,n	 ; ホ〖ルドの翁の肋年
+y67,n	 ; ソフト步の翁の肋年
+y91,n    ; リバ〖ブの翁の肋年
+y93,n    ; コ〖ラスの翁の肋年
+y94,n    ; ディレイの翁の肋年(SC-88)
 
 
-�� ���ץ��������롼����
+ⅲ 肩妥エクスクル〖シブ
 
-�����������
+ˇ不富介袋步
 EX x7e,x7f,x09,x01,xf7                      ; GM SYSTEM ON
 EX x41,x10,x42,x12,{x40,x00,x7f,x00},xf7    ; GS RESET
 EX x41,x10,x42,x12,{x00,x00,x7f,x00},xf7    ; SC-88 Single Module Mode
 
-����С���
+ˇリバ〖ブ
 EX x41,x10,x42,x12,{x40,x01,x30,n},xf7      ; REVERB MACRO [*]
 EX x41,x10,x42,x12,{x40,x01,x31,n},xf7      ; REVERB CHARACTER
 EX x41,x10,x42,x12,{x40,x01,x32,n},xf7      ; REVERB PRE-LPF
@@ -59,7 +59,7 @@ EX x41,x10,x42,x12,{x40,x01,x33,n},xf7      ; REVERB LEVEL
 EX x41,x10,x42,x12,{x40,x01,x34,n},xf7      ; REVERB TIME
 EX x41,x10,x42,x12,{x40,x01,x35,n},xf7      ; REVERB DELAY FEEDBACK
 
-�������饹
+ˇコ〖ラス
 EX x41,x10,x42,x12,{x40,x01,x38,n},xf7      ; CHORUS MACRO [*]
 EX x41,x10,x42,x12,{x40,x01,x39,n},xf7      ; CHORUS PRE-LPF
 EX x41,x10,x42,x12,{x40,x01,x3a,n},xf7      ; CHORUS LEVEL
@@ -69,7 +69,7 @@ EX x41,x10,x42,x12,{x40,x01,x3d,n},xf7      ; CHORUS RATE
 EX x41,x10,x42,x12,{x40,x01,x3e,n},xf7      ; CHORUS DEPTH
 EX x41,x10,x42,x12,{x40,x01,x3f,n},xf7      ; CHORUS SEND LEVEL TO REVERB
 
-���ǥ��쥤(SC-88)
+ˇディレイ(SC-88)
 EX x41,x10,x42,x12,{x40,x01,x50,n},xf7      ; DELAY MACRO [*]
 EX x41,x10,x42,x12,{x40,x01,x51,n},xf7      ; DELAY PRE-LPF
 EX x41,x10,x42,x12,{x40,x01,x52,n},xf7      ; DELAY TIME CENTER
@@ -82,13 +82,13 @@ EX x41,x10,x42,x12,{x40,x01,x58,n},xf7      ; DELAY LEVEL
 EX x41,x10,x42,x12,{x40,x01,x59,n},xf7      ; DELAY FEEDBACK
 EX x41,x10,x42,x12,{x40,x01,x5A,n},xf7      ; DELAY SENDLEVEL TO REVERB
 
-�������饤��(SC-88)
+ˇイコライザ(SC-88)
 EX x41,x10,x42,x12,{x40,x02,x00,n},xf7      ; EQ Low Freq. (0:400Hz/1:200Hz)
 EX x41,x10,x42,x12,{x40,x02,x01,n},xf7      ; EQ Low Gain  (52-64-76)/Def=64
 EX x41,x10,x42,x12,{x40,x02,x02,n},xf7      ; EQ High Freq.(0:6kHz/1:3kHz)
 EX x41,x10,x42,x12,{x40,x02,x03,n},xf7      ; EQ High Gain (52-64-76)/Def=64
 
-������¾
+ˇその戮
 EX x41,x10,x42,x12,{x40,x1a,x15,2},xF7      ; Ch.11 = RHYTHM2 (SC-88)
 EX x41,x10,x42,x12,{x40,16+n,x1c,00},xf7    ; Random Pan (n=Ch)
 EX x41,x10,x45,x12,{x10,0,0,"Sample"},xf7   ; Display Letter
@@ -112,53 +112,53 @@ EX x41,x10,x42,x12,{x40,x1e,x02,x10},xf7    ; GS-Ch.15 off
 EX x41,x10,x42,x12,{x40,x1f,x02,x10},xf7    ; GS-Ch.16 off
 
 
-�� �ե����ɥ�����������ʥޥ������ܥ�塼����ѡ�
+ⅲ フェ〖ドアウト肋年毋∈マスタ〖ボリュ〖ム蝗脱∷
 
-;�����ᤫ���ƥե����ɥ�����
+;４井泪かけてフェ〖ドアウト
 1A Z{z0=128} [Z{z0=z0-4} EXx41,x10,x42,x12,{x40,x00,x04,z0},xf7 r8]32
 
-;�����ᤫ���ƥե����ɥ�����
+;８井泪かけてフェ〖ドアウト
 1A Z{z0=128} [Z{z0=z0-2} EXx41,x10,x42,x12,{x40,x00,x04,z0},xf7 r8]64
 
 
-�� ����¾��������
+ⅲ その戮の肋年霹
 
-IB8,2,32,12,18     ; IB���ޥ�ɤ�������
-IB20,2,32,24,48    ; IB���ޥ�ɤζ�����������
-FE3,0,8,-50,2.,50  ; FE���ޥ�ɤ�������
+IB8,2,32,12,18     ; IBコマンドの肋年毋
+IB20,2,32,24,48    ; IBコマンドの锭碍な肋年毋
+FE3,0,8,-50,2.,50  ; FEコマンドの肋年毋
 
-���ݡ��Ȼ���᥿���٥�ȡ�by NT-3��
+ˇポ〖ト回年メタイベント∈by NT-3∷
 
-EExff,x21,1,n      ; �Ǹ���ͤ��ݡ����ֹ�Ǥ���S-MPU�ʤ�0��A�ݡ���,1��B�ݡ��ȡ�
-                   ; MPU+RS�ʤ�0��MPU��1��RS�Ǥ����ʥɥ饤�Ф�����ˤ����
+EExff,x21,1,n      ; 呵稿の猛がポ〖ト戎规です。S-MPUなら0がAポ〖ト,1がBポ〖ト。
+                   ; MPU+RSなら0がMPU、1がRSです。∈ドライバの肋年にもよる∷
 
-A EExff,x21,1,1 C1 ; B-port Ch.1  ���Τ褦�ʻ���ǣϣˤǤ���
-                   ; SC-88�ʤɤ�32�ѡ��ȥǡ�������Ȥ��ˤ�
-                   ; ɬ�ܤˤʤ�Ȼפ��ޤ���
+A EExff,x21,1,1 C1 ; B-port Ch.1  　のような回年でＯＫです。
+                   ; SC-88などで32パ〖トデ〖タを侯るときには
+                   ; 涩寇になると蛔います。
 
 
-�� ��­����
+ⅲ 输颅棱汤
 
-����С��֥ޥ����Σ����
+ˇリバ〖ブマクロのｎの猛
 0. Room 1	4. Hall 2
 1. Room 2	5. Plate
 2. Room 3	6. Delay
 3. Hall 1	7. Panning Delay
 
-�������饹�ޥ����Σ����
+ˇコ〖ラスマクロのｎの猛
 0. Chorus 1	4. Feedback Chorus
 1. Chorus 2	5. Flanger
 2. Chorus 3	6. Short Delay
 3. Chorus 4	7. Short Delay (FB)
 
-���ǥ��쥤�ޥ����Σ����(SC-88)
+ˇディレイマクロのｎの猛(SC-88)
 0. Delay 1	5. Pan Delay 2
 1. Delay 2	6. Pan Delay 3
 2. Delay 3	7. Pan Delay 4
 3. Delay 4	8. Delay to Reverb
 4. Pan Delay 1	9. Pan Repeat
 
-���褯�Ȥ�����塼�˥�����
+ˇよく蝗われるチュ〖ニング肋年
 EXx41,x10,x42,x12,{x40,0,0,0,x04,x0c,x04},xf7 ; Master-Tune (+196)
 EXx41,x10,x42,x12,{x40,0,0,0,x04,x09,x0d},xf7 ; Master-Tune (+157)
 EXx41,x10,x42,x12,{x40,0,0,0,x04,x07,x06},xf7 ; Master-Tune (+118)

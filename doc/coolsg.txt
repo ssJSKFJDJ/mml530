@@ -1,36 +1,36 @@
 ===============================================================================
     COOLSG.TXT Ver0.1 for MML2MID + XG + PLG100-SG   by 74HC04
 ===============================================================================
-�ʤ��Υե����뤫��ɬ�פʥ��ޥ�ɤ򥫥åȡ��ڡ����Ȥ��ƻȤäƤ���������
+∈このファイルから涩妥なコマンドをカット□ペ〖ストして蝗ってください∷
 
-; �����ǤΤ��ᡤư���ݾڤϤǤ��ޤ���
+; 幻年惹のため·瓢侯瘦沮はできませんˉ
 
 
 EX x43,x1m,-----
 (*) m = Device No.
 
-�������ƥ�ꥻ�å�
+ⅲシステムリセット
 
 EX x7e,x7f,x09,x01,xf7			; GM SYSTEM ON
 EX x43,x10,x4c,x00,x00,x7e,x00,xf7	; XG SYSTEM ON
 
-���ӣǥܡ��ɥ�������
+ⅲＳＧボ〖ドアサイン
 
-EX x43,x10,x4c,x70,x01,x00,x0n,xf7	;SG PART ASSIGN ������(n=CH)
-EX x43,x10,x4c,x70,x01,x01,x0n,xf7	;SG PART ASSIGN ������(n=CH)
+EX x43,x10,x4c,x70,x01,x00,x0n,xf7	;SG PART ASSIGN １绥誊(n=CH)
+EX x43,x10,x4c,x70,x01,x01,x0n,xf7	;SG PART ASSIGN ２绥誊(n=CH)
 
-���ӣǥ����ƥ��å�����
+ⅲＳＧシステムメッセ〖ジ
 
 EX x43,x10,x5d,x00,x00,x08,n,xf7	;SG SusTimeOut(n=1-100,0=off)
 EX x43,x10,x5d,x00,x00,x0a,n,xf7	;SG InitPhone(n=0-7)
 					(0-ahh 1-ihh 2-uhh 3-ehh 4-ohh
 					 5-rha 6-wha 7-rhu)
 
-��PhoneSEQ�ѥ�᡼�������󥸡��إå�
+ⅲPhoneSEQパラメ〖タチェンジ　ヘッダ
 
-EX x43,x10,x5d,x03,x0n,x00, ����������ǡ��������� ,xf7
+EX x43,x10,x5d,x03,x0n,x00, ˇˇˇ不泪デ〖タˇˇˇ ,xf7
 
-���ӣǥͥ��ƥ��֥ѥ�᡼��
+ⅲＳＧネイティブパラメ〖タ
 
 EX x43,x10,x5d,x50,x00,x00,n1,n2,xf7	;SG FormantFreqShift1(n1:MSB n2:LSB)
 EX x43,x10,x5d,x50,x00,x02,n1,n2,xf7	;SG FormantFreqShift2(n1:MSB n2:LSB)
